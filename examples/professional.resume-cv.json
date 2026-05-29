@@ -1,0 +1,297 @@
+{
+  "protocol": {
+    "name": "resume.cv.open",
+    "version": "0.1"
+  },
+  "profile": {
+    "id": "profile-8c8f4e40-3b94-4cc2-a1b6-1f3f9d5f6b10",
+    "identity": {
+      "displayName": "Maya Chen",
+      "givenName": "Maya",
+      "familyName": "Chen",
+      "contact": [
+        {
+          "type": "email",
+          "value": "maya.chen@example.com",
+          "preferred": true
+        },
+        {
+          "type": "phone",
+          "value": "+1-555-010-2048"
+        }
+      ],
+      "location": {
+        "city": "Seattle",
+        "region": "WA",
+        "country": "US",
+        "remote": true
+      },
+      "links": [
+        {
+          "type": "portfolio",
+          "label": "Portfolio",
+          "url": "https://example.com/maya-chen"
+        },
+        {
+          "type": "professional_network",
+          "label": "Professional profile",
+          "url": "https://www.linkedin.com/in/example-maya-chen"
+        }
+      ]
+    },
+    "summary": {
+      "headline": "Senior Product Data Analyst",
+      "text": "Product data analyst with eight years of experience building experimentation, growth, and retention analytics programs for subscription software teams.",
+      "provenance": {
+        "source": "applicant"
+      }
+    },
+    "work": [
+      {
+        "employer": "Northstar Apps",
+        "title": "Senior Product Data Analyst",
+        "employmentType": "full_time",
+        "location": {
+          "city": "Seattle",
+          "region": "WA",
+          "country": "US",
+          "remote": true
+        },
+        "startDate": "2021-04",
+        "endDate": null,
+        "current": true,
+        "responsibilities": [
+          "Led analytics for onboarding, activation, and retention across a 4.2M-user SaaS product.",
+          "Partnered with product managers and engineers to design experiment metrics and self-service dashboards.",
+          "Maintained dbt models and metric definitions for product usage reporting."
+        ],
+        "achievements": [
+          {
+            "description": "Improved onboarding experiment velocity by creating a standardized analysis template and metric library.",
+            "metrics": [
+              {
+                "name": "experiment_readout_time_reduction",
+                "value": "45",
+                "unit": "percent"
+              }
+            ]
+          },
+          {
+            "description": "Identified a retention opportunity that informed lifecycle messaging changes.",
+            "metrics": [
+              {
+                "name": "month_two_retention_lift",
+                "value": "6.8",
+                "unit": "percentage_points"
+              }
+            ]
+          }
+        ],
+        "skillsUsed": ["SQL", "dbt", "Python", "A/B testing", "Product analytics"],
+        "provenance": {
+          "source": "applicant"
+        }
+      },
+      {
+        "employer": "BrightCart",
+        "title": "Data Analyst",
+        "employmentType": "full_time",
+        "location": {
+          "city": "Portland",
+          "region": "OR",
+          "country": "US",
+          "remote": false
+        },
+        "startDate": "2017-06",
+        "endDate": "2021-03",
+        "current": false,
+        "responsibilities": [
+          "Built executive dashboards for marketplace supply, demand, and conversion health.",
+          "Created cohort analyses for customer acquisition and repeat purchase behavior.",
+          "Supported quarterly planning with revenue and funnel forecasts."
+        ],
+        "achievements": [
+          {
+            "description": "Reduced manual weekly reporting work by automating recurring marketplace health reports.",
+            "metrics": [
+              {
+                "name": "hours_saved_per_week",
+                "value": "12",
+                "unit": "hours"
+              }
+            ]
+          }
+        ],
+        "skillsUsed": ["SQL", "Tableau", "Forecasting", "Cohort analysis"],
+        "provenance": {
+          "source": "applicant"
+        }
+      }
+    ],
+    "education": [
+      {
+        "institution": "University of Washington",
+        "credential": "Bachelor of Science",
+        "fieldOfStudy": "Statistics",
+        "startDate": "2013-09",
+        "endDate": "2017-06",
+        "honors": ["Cum laude"],
+        "provenance": {
+          "source": "applicant"
+        }
+      }
+    ],
+    "skills": [
+      {
+        "name": "SQL",
+        "category": "Data analysis",
+        "proficiency": "expert",
+        "yearsExperience": 8,
+        "lastUsed": "2026-05",
+        "provenance": {
+          "source": "applicant"
+        }
+      },
+      {
+        "name": "Python",
+        "category": "Programming",
+        "proficiency": "advanced",
+        "yearsExperience": 6,
+        "lastUsed": "2026-05",
+        "provenance": {
+          "source": "applicant"
+        }
+      },
+      {
+        "name": "A/B testing",
+        "category": "Experimentation",
+        "proficiency": "advanced",
+        "yearsExperience": 5,
+        "lastUsed": "2026-05",
+        "provenance": {
+          "source": "applicant"
+        }
+      }
+    ],
+    "credentials": [
+      {
+        "name": "Google Data Analytics Professional Certificate",
+        "issuer": "Google",
+        "issueDate": "2020-08",
+        "verificationUrl": "https://example.com/verify/google-data-analytics",
+        "provenance": {
+          "source": "issuer",
+          "verifiedBy": "Google",
+          "verificationUrl": "https://example.com/verify/google-data-analytics",
+          "lastVerifiedAt": "2026-05-01T12:00:00Z"
+        }
+      }
+    ],
+    "projects": [
+      {
+        "title": "Self-Service Product Metrics Catalog",
+        "role": "Analytics lead",
+        "description": "Created a documented catalog of product metrics with definitions, owners, and dbt model lineage.",
+        "outcomes": [
+          "Reduced inconsistent metric usage across product teams.",
+          "Improved onboarding for new analysts and product managers."
+        ],
+        "startDate": "2023-01",
+        "endDate": "2023-09",
+        "skillsUsed": ["dbt", "SQL", "Data documentation"],
+        "provenance": {
+          "source": "applicant"
+        }
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "proficiency": "native_or_bilingual"
+      },
+      {
+        "name": "Mandarin",
+        "proficiency": "professional_working"
+      }
+    ],
+    "preferences": {
+      "desiredRoles": ["Senior Product Data Analyst", "Analytics Manager"],
+      "employmentTypes": ["full_time"],
+      "locations": [
+        {
+          "city": "Seattle",
+          "region": "WA",
+          "country": "US",
+          "remote": true
+        }
+      ],
+      "remotePreference": "hybrid",
+      "travelWillingness": "limited",
+      "availability": "2026-07"
+    }
+  },
+  "application": {
+    "employer": "Example Software Co.",
+    "jobRequisitionId": "REQ-2026-1482",
+    "jobTitle": "Senior Product Analyst",
+    "appliedAt": "2026-05-28T22:40:00Z",
+    "tailoredSummary": "I am interested in this role because it combines experimentation, product strategy, and metric governance for a high-growth collaboration product.",
+    "availability": "2026-07",
+    "workAuthorization": [
+      {
+        "id": "work-auth-us",
+        "question": "Are you authorized to work in the United States?",
+        "answer": true,
+        "answeredAt": "2026-05-28T22:40:00Z"
+      }
+    ],
+    "screeningAnswers": [
+      {
+        "id": "sql-years",
+        "question": "How many years of professional SQL experience do you have?",
+        "answer": 8,
+        "answeredAt": "2026-05-28T22:40:00Z"
+      }
+    ],
+    "attestations": [
+      {
+        "statement": "I certify that the information submitted in this application is accurate to the best of my knowledge.",
+        "accepted": true,
+        "acceptedAt": "2026-05-28T22:40:00Z"
+      }
+    ],
+    "renderedResumeUrl": "https://example.com/maya-chen/resume"
+  },
+  "consent": {
+    "purpose": "job_application",
+    "scope": [
+      "profile.identity",
+      "profile.summary",
+      "profile.work",
+      "profile.education",
+      "profile.skills",
+      "profile.credentials",
+      "profile.projects",
+      "profile.languages",
+      "profile.preferences",
+      "application"
+    ],
+    "grantedAt": "2026-05-28T22:40:00Z",
+    "retention": {
+      "policy": "until_hiring_decision",
+      "deleteAfter": "2026-11-28",
+      "note": "Applicant requests deletion if not selected, unless retention is legally required."
+    },
+    "revocation": {
+      "email": "privacy@example.com",
+      "instructions": "Contact the employer privacy team to request deletion or correction."
+    }
+  },
+  "metadata": {
+    "createdAt": "2026-05-28T22:40:00Z",
+    "updatedAt": "2026-05-28T22:40:00Z",
+    "language": "en-US",
+    "sourceSystem": "Example Resume Builder",
+    "schemaUrl": "https://resume.cv.open/schemas/resume-cv-open-v0.1.schema.json"
+  }
+}

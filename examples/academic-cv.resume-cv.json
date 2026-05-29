@@ -1,0 +1,328 @@
+{
+  "protocol": {
+    "name": "resume.cv.open",
+    "version": "0.1",
+    "extensions": ["academic.cv/0.1"]
+  },
+  "profile": {
+    "id": "profile-2b0a21b1-44a8-40d4-9a57-bb4b4db91e35",
+    "identity": {
+      "displayName": "Dr. Elena Alvarez",
+      "givenName": "Elena",
+      "familyName": "Alvarez",
+      "contact": [
+        {
+          "type": "email",
+          "value": "elena.alvarez@example.edu",
+          "preferred": true
+        },
+        {
+          "type": "website",
+          "value": "https://example.edu/~ealvarez"
+        }
+      ],
+      "location": {
+        "city": "Madison",
+        "region": "WI",
+        "country": "US",
+        "remote": false
+      },
+      "links": [
+        {
+          "type": "publication",
+          "label": "ORCID",
+          "url": "https://orcid.org/0000-0002-1825-0097"
+        },
+        {
+          "type": "publication",
+          "label": "Google Scholar",
+          "url": "https://scholar.google.com/citations?user=example"
+        }
+      ]
+    },
+    "summary": {
+      "headline": "Assistant Professor of Environmental Data Science",
+      "text": "Researcher and educator studying climate adaptation, geospatial modeling, and equitable infrastructure planning.",
+      "provenance": {
+        "source": "applicant"
+      }
+    },
+    "work": [
+      {
+        "employer": "Great Lakes State University",
+        "title": "Assistant Professor, Department of Environmental Studies",
+        "employmentType": "full_time",
+        "location": {
+          "city": "Madison",
+          "region": "WI",
+          "country": "US",
+          "remote": false
+        },
+        "startDate": "2021-08",
+        "endDate": null,
+        "current": true,
+        "responsibilities": [
+          "Lead a research group focused on climate risk modeling and public-sector decision support.",
+          "Teach graduate and undergraduate courses in geospatial analytics, environmental statistics, and reproducible research.",
+          "Advise doctoral and masters students in environmental data science."
+        ],
+        "achievements": [
+          {
+            "description": "Secured external funding for interdisciplinary research on heat resilience and urban infrastructure.",
+            "metrics": [
+              {
+                "name": "external_funding",
+                "value": "1.4",
+                "unit": "million_usd"
+              }
+            ]
+          }
+        ],
+        "skillsUsed": ["R", "Python", "Geospatial modeling", "Climate risk analysis", "Teaching"],
+        "provenance": {
+          "source": "applicant"
+        }
+      },
+      {
+        "employer": "National Climate Research Center",
+        "title": "Postdoctoral Research Fellow",
+        "employmentType": "full_time",
+        "location": {
+          "city": "Boulder",
+          "region": "CO",
+          "country": "US",
+          "remote": false
+        },
+        "startDate": "2018-09",
+        "endDate": "2021-07",
+        "current": false,
+        "responsibilities": [
+          "Developed statistical models for regional climate adaptation planning.",
+          "Collaborated with municipal partners on decision-support tools.",
+          "Published peer-reviewed research on flood exposure and infrastructure vulnerability."
+        ],
+        "achievements": [
+          {
+            "description": "Co-led a multi-city climate vulnerability assessment used by regional planning agencies."
+          }
+        ],
+        "skillsUsed": ["R", "Bayesian modeling", "GIS", "Stakeholder engagement"],
+        "provenance": {
+          "source": "applicant"
+        }
+      }
+    ],
+    "education": [
+      {
+        "institution": "University of California, Davis",
+        "credential": "Doctor of Philosophy",
+        "fieldOfStudy": "Environmental Science and Policy",
+        "startDate": "2013-09",
+        "endDate": "2018-06",
+        "honors": ["Dissertation fellowship"],
+        "coursework": ["Spatial statistics", "Hydrology", "Climate policy"],
+        "provenance": {
+          "source": "applicant"
+        }
+      },
+      {
+        "institution": "University of Arizona",
+        "credential": "Bachelor of Science",
+        "fieldOfStudy": "Geography",
+        "startDate": "2009-08",
+        "endDate": "2013-05",
+        "honors": ["Summa cum laude"],
+        "provenance": {
+          "source": "applicant"
+        }
+      }
+    ],
+    "skills": [
+      {
+        "name": "Geospatial modeling",
+        "category": "Research methods",
+        "proficiency": "expert",
+        "yearsExperience": 11,
+        "lastUsed": "2026-05",
+        "provenance": {
+          "source": "applicant"
+        }
+      },
+      {
+        "name": "R",
+        "category": "Programming",
+        "proficiency": "expert",
+        "yearsExperience": 12,
+        "lastUsed": "2026-05",
+        "provenance": {
+          "source": "applicant"
+        }
+      },
+      {
+        "name": "Grant writing",
+        "category": "Research administration",
+        "proficiency": "advanced",
+        "yearsExperience": 7,
+        "lastUsed": "2026-04",
+        "provenance": {
+          "source": "applicant"
+        }
+      }
+    ],
+    "credentials": [],
+    "projects": [
+      {
+        "title": "Urban Heat Resilience Atlas",
+        "role": "Principal investigator",
+        "description": "Open data project combining satellite temperature observations, tree canopy data, and socioeconomic indicators for municipal planning.",
+        "outcomes": [
+          "Released a public data portal for three partner cities.",
+          "Supported grant-funded heat mitigation planning."
+        ],
+        "startDate": "2022-01",
+        "endDate": "2025-12",
+        "links": [
+          {
+            "type": "project",
+            "label": "Project site",
+            "url": "https://example.edu/heat-atlas"
+          }
+        ],
+        "skillsUsed": ["GIS", "R", "Remote sensing", "Public policy"],
+        "provenance": {
+          "source": "applicant"
+        }
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "proficiency": "native_or_bilingual"
+      },
+      {
+        "name": "Spanish",
+        "proficiency": "full_professional"
+      }
+    ],
+    "preferences": {
+      "desiredRoles": ["Associate Professor", "Research Director", "Climate Data Science Lead"],
+      "employmentTypes": ["full_time"],
+      "locations": [
+        {
+          "country": "US",
+          "remote": false
+        }
+      ],
+      "remotePreference": "flexible",
+      "travelWillingness": "moderate",
+      "availability": "2027-08"
+    }
+  },
+  "application": {
+    "employer": "Example Research University",
+    "jobRequisitionId": "FAC-ENV-2026-03",
+    "jobTitle": "Associate Professor of Climate Data Science",
+    "appliedAt": "2026-05-28T22:45:00Z",
+    "tailoredSummary": "My research program aligns with the department's emphasis on climate adaptation, public data infrastructure, and community-engaged scholarship.",
+    "availability": "2027-08",
+    "screeningAnswers": [
+      {
+        "id": "teaching-statement",
+        "question": "Have you included a teaching statement?",
+        "answer": true,
+        "answeredAt": "2026-05-28T22:45:00Z"
+      }
+    ],
+    "attestations": [
+      {
+        "statement": "I certify that the information submitted in this application is accurate to the best of my knowledge.",
+        "accepted": true,
+        "acceptedAt": "2026-05-28T22:45:00Z"
+      }
+    ],
+    "renderedResumeUrl": "https://example.edu/~ealvarez/cv"
+  },
+  "consent": {
+    "purpose": "job_application",
+    "scope": [
+      "profile.identity",
+      "profile.summary",
+      "profile.work",
+      "profile.education",
+      "profile.skills",
+      "profile.projects",
+      "profile.languages",
+      "profile.preferences",
+      "application",
+      "extensions.academic.cv/0.1"
+    ],
+    "grantedAt": "2026-05-28T22:45:00Z",
+    "retention": {
+      "policy": "fixed_period",
+      "deleteAfter": "2027-05-28",
+      "note": "Applicant consents to retention for this faculty search cycle."
+    },
+    "revocation": {
+      "email": "faculty-search-privacy@example.edu",
+      "instructions": "Contact the faculty search administrator for correction or deletion requests."
+    }
+  },
+  "metadata": {
+    "createdAt": "2026-05-28T22:45:00Z",
+    "updatedAt": "2026-05-28T22:45:00Z",
+    "language": "en-US",
+    "sourceSystem": "Example Academic CV Builder",
+    "schemaUrl": "https://resume.cv.open/schemas/resume-cv-open-v0.1.schema.json"
+  },
+  "extensions": {
+    "academic.cv/0.1": {
+      "appointments": [
+        {
+          "title": "Faculty Affiliate, Center for Urban Resilience",
+          "institution": "Great Lakes State University",
+          "startDate": "2022-01",
+          "endDate": null
+        }
+      ],
+      "publications": [
+        {
+          "title": "Equitable Heat Adaptation Planning Using Neighborhood-Scale Climate Indicators",
+          "authors": ["Elena Alvarez", "Priya Nair", "Thomas Beck"],
+          "venue": "Journal of Climate Adaptation",
+          "year": 2025,
+          "doi": "10.0000/example.2025.001"
+        },
+        {
+          "title": "Flood Exposure Modeling for Regional Infrastructure Planning",
+          "authors": ["Elena Alvarez", "Marcus Reid"],
+          "venue": "Environmental Data Science",
+          "year": 2023,
+          "doi": "10.0000/example.2023.114"
+        }
+      ],
+      "grants": [
+        {
+          "title": "Community-Centered Urban Heat Resilience Data Infrastructure",
+          "funder": "National Science Foundation",
+          "role": "Principal investigator",
+          "amount": 950000,
+          "currency": "USD",
+          "startDate": "2023-09",
+          "endDate": "2026-08"
+        }
+      ],
+      "teaching": [
+        {
+          "course": "Environmental Data Science",
+          "level": "Graduate",
+          "terms": ["Fall 2024", "Fall 2025"]
+        },
+        {
+          "course": "Introduction to GIS for Climate Adaptation",
+          "level": "Undergraduate",
+          "terms": ["Spring 2023", "Spring 2025"]
+        }
+      ]
+    }
+  }
+}

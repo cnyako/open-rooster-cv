@@ -1,0 +1,771 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://resume.cv.open/schemas/resume-cv-open-v0.1.schema.json",
+  "title": "Open Resume/CV JSON Protocol v0.1",
+  "description": "Draft schema for a vendor-neutral JSON resume and CV exchange payload.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["protocol", "profile", "application", "consent", "metadata"],
+  "properties": {
+    "protocol": {
+      "$ref": "#/$defs/protocol"
+    },
+    "profile": {
+      "$ref": "#/$defs/profile"
+    },
+    "application": {
+      "$ref": "#/$defs/application"
+    },
+    "consent": {
+      "$ref": "#/$defs/consent"
+    },
+    "metadata": {
+      "$ref": "#/$defs/metadata"
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Namespaced extension payloads. Extension keys should match entries in protocol.extensions.",
+      "additionalProperties": true,
+      "propertyNames": {
+        "pattern": "^[a-z0-9][a-z0-9.-]*(/[0-9]+\\.[0-9]+)?$"
+      }
+    }
+  },
+  "$defs": {
+    "protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version"],
+      "properties": {
+        "name": {
+          "const": "resume.cv.open"
+        },
+        "version": {
+          "const": "0.1"
+        },
+        "extensions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9.-]*(/[0-9]+\\.[0-9]+)?$"
+          },
+          "uniqueItems": true,
+          "default": []
+        }
+      }
+    },
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "identity"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Opaque profile identifier controlled by the applicant or source system."
+        },
+        "identity": {
+          "$ref": "#/$defs/identity"
+        },
+        "summary": {
+          "$ref": "#/$defs/summary"
+        },
+        "work": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/workRole"
+          },
+          "default": []
+        },
+        "education": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/educationRecord"
+          },
+          "default": []
+        },
+        "skills": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/skill"
+          },
+          "default": []
+        },
+        "credentials": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/credential"
+          },
+          "default": []
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/project"
+          },
+          "default": []
+        },
+        "languages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/language"
+          },
+          "default": []
+        },
+        "preferences": {
+          "$ref": "#/$defs/preferences"
+        }
+      }
+    },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["displayName", "contact"],
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "givenName": {
+          "type": "string"
+        },
+        "familyName": {
+          "type": "string"
+        },
+        "pronunciation": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/contactMethod"
+          }
+        },
+        "location": {
+          "$ref": "#/$defs/location"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/link"
+          },
+          "default": []
+        }
+      }
+    },
+    "contactMethod": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "value"],
+      "properties": {
+        "type": {
+          "enum": ["email", "phone", "website", "portfolio", "professional_network", "other"]
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        },
+        "label": {
+          "type": "string"
+        },
+        "preferred": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "link": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["url"],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "label": {
+          "type": "string"
+        },
+        "type": {
+          "enum": ["website", "portfolio", "professional_network", "publication", "project", "other"]
+        }
+      }
+    },
+    "location": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "city": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string",
+          "description": "State, province, territory, or comparable region."
+        },
+        "country": {
+          "type": "string",
+          "pattern": "^[A-Z]{2}$",
+          "description": "ISO 3166-1 alpha-2 country code."
+        },
+        "remote": {
+          "type": "boolean"
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "headline": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "objective": {
+          "type": "string"
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        }
+      }
+    },
+    "workRole": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["employer", "title", "startDate"],
+      "properties": {
+        "employer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "employmentType": {
+          "enum": ["full_time", "part_time", "contract", "temporary", "internship", "apprenticeship", "volunteer", "self_employed", "other"]
+        },
+        "location": {
+          "$ref": "#/$defs/location"
+        },
+        "startDate": {
+          "$ref": "#/$defs/resumeDate"
+        },
+        "endDate": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/resumeDate"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "current": {
+          "type": "boolean",
+          "default": false
+        },
+        "responsibilities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "achievements": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/achievement"
+          },
+          "default": []
+        },
+        "skillsUsed": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        }
+      }
+    },
+    "achievement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["description"],
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "metrics": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/metric"
+          },
+          "default": []
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/link"
+          },
+          "default": []
+        }
+      }
+    },
+    "metric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "value"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        }
+      }
+    },
+    "educationRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["institution"],
+      "properties": {
+        "institution": {
+          "type": "string",
+          "minLength": 1
+        },
+        "credential": {
+          "type": "string"
+        },
+        "fieldOfStudy": {
+          "type": "string"
+        },
+        "startDate": {
+          "$ref": "#/$defs/resumeDate"
+        },
+        "endDate": {
+          "$ref": "#/$defs/resumeDate"
+        },
+        "honors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "coursework": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "verificationUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        }
+      }
+    },
+    "skill": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "type": "string"
+        },
+        "proficiency": {
+          "enum": ["beginner", "working", "advanced", "expert"]
+        },
+        "yearsExperience": {
+          "type": "number",
+          "minimum": 0
+        },
+        "lastUsed": {
+          "$ref": "#/$defs/resumeDate"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/link"
+          },
+          "default": []
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        }
+      }
+    },
+    "credential": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "issuer"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "issuer": {
+          "type": "string"
+        },
+        "credentialId": {
+          "type": "string"
+        },
+        "issueDate": {
+          "$ref": "#/$defs/resumeDate"
+        },
+        "expiryDate": {
+          "$ref": "#/$defs/resumeDate"
+        },
+        "verificationUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        }
+      }
+    },
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title"],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "outcomes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "startDate": {
+          "$ref": "#/$defs/resumeDate"
+        },
+        "endDate": {
+          "$ref": "#/$defs/resumeDate"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/link"
+          },
+          "default": []
+        },
+        "skillsUsed": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        }
+      }
+    },
+    "language": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "proficiency": {
+          "enum": ["elementary", "limited_working", "professional_working", "full_professional", "native_or_bilingual"]
+        }
+      }
+    },
+    "preferences": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "desiredRoles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "employmentTypes": {
+          "type": "array",
+          "items": {
+            "enum": ["full_time", "part_time", "contract", "temporary", "internship", "apprenticeship", "volunteer", "self_employed", "other"]
+          },
+          "uniqueItems": true,
+          "default": []
+        },
+        "locations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/location"
+          },
+          "default": []
+        },
+        "remotePreference": {
+          "enum": ["onsite", "hybrid", "remote", "flexible"]
+        },
+        "travelWillingness": {
+          "enum": ["none", "limited", "moderate", "extensive"]
+        },
+        "availability": {
+          "$ref": "#/$defs/resumeDate"
+        },
+        "compensationExpectation": {
+          "$ref": "#/$defs/compensation"
+        }
+      }
+    },
+    "compensation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["amount", "currency", "period"],
+      "properties": {
+        "amount": {
+          "type": "number",
+          "minimum": 0
+        },
+        "currency": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        },
+        "period": {
+          "enum": ["hour", "day", "week", "month", "year"]
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "application": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "employer": {
+          "type": "string"
+        },
+        "jobRequisitionId": {
+          "type": "string"
+        },
+        "jobTitle": {
+          "type": "string"
+        },
+        "appliedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "tailoredSummary": {
+          "type": "string"
+        },
+        "availability": {
+          "$ref": "#/$defs/resumeDate"
+        },
+        "workAuthorization": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/questionAnswer"
+          },
+          "default": []
+        },
+        "screeningAnswers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/questionAnswer"
+          },
+          "default": []
+        },
+        "attestations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/attestation"
+          },
+          "default": []
+        },
+        "renderedResumeUrl": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "questionAnswer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["question", "answer"],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "question": {
+          "type": "string"
+        },
+        "answer": {
+          "type": ["string", "number", "boolean", "null"]
+        },
+        "answeredAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "attestation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["statement", "accepted"],
+      "properties": {
+        "statement": {
+          "type": "string"
+        },
+        "accepted": {
+          "type": "boolean"
+        },
+        "acceptedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "consent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["purpose", "scope"],
+      "properties": {
+        "purpose": {
+          "enum": ["job_application", "talent_pool", "referral", "profile_import", "other"]
+        },
+        "scope": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "grantedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "retention": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "policy": {
+              "enum": ["until_hiring_decision", "fixed_period", "legal_requirement", "applicant_controlled", "unspecified"]
+            },
+            "deleteAfter": {
+              "type": "string",
+              "format": "date"
+            },
+            "note": {
+              "type": "string"
+            }
+          }
+        },
+        "revocation": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "email": {
+              "type": "string",
+              "format": "email"
+            },
+            "instructions": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["createdAt", "language"],
+      "properties": {
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "language": {
+          "type": "string",
+          "pattern": "^[a-z]{2,3}(-[A-Z]{2})?$",
+          "description": "BCP 47-style language tag for the primary payload language."
+        },
+        "sourceSystem": {
+          "type": "string"
+        },
+        "schemaUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "payloadHash": {
+          "type": "string"
+        },
+        "signature": {
+          "type": "object",
+          "additionalProperties": true,
+          "description": "Optional signature object. Signature format is intentionally unspecified in v0.1."
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source"],
+      "properties": {
+        "source": {
+          "enum": ["applicant", "issuer", "employer", "platform", "inferred"]
+        },
+        "verifiedBy": {
+          "type": "string"
+        },
+        "verificationUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "lastVerifiedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "resumeDate": {
+      "type": "string",
+      "pattern": "^[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?$",
+      "description": "ISO 8601 date with year, year-month, or full date precision."
+    }
+  }
+}
